@@ -163,16 +163,16 @@ section .title::after{
 
 
 /* home section styling */
-.home{
-    display: flex;
-    background: url("images/banner.jpg") no-repeat center;
+.home {
+    background: url("../images/home.jpg") no-repeat center center;    display: flex;
     height: 100vh;
     color: #fff;
     min-height: 500px;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll; /* Ubah dari fixed ke scroll */
     font-family: 'Ubuntu', sans-serif;
 }
+
 .home .max-width{
   width: 100%;
   display: flex;
@@ -257,57 +257,134 @@ section .title::after{
     background: none;
 }
 
-/* services section styling */
-.services, .teams{
-    color:#fff;
+/* Services section styling */
+.services, .teams {
+    color: #fff;
     background: #111;
+    padding: 50px 0;
 }
+
 .services .title::before,
-.teams .title::before{
+.teams .title::before {
     background: #fff;
 }
+
 .services .title::after,
-.teams .title::after{
+.teams .title::after {
     background: #111;
     content: "what i provide";
 }
-.services .serv-content .card{
-    width: calc(33% - 20px);
+
+/* Container */
+.services .serv-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+}
+
+/* Card Styling */
+.services .serv-content .card {
+    width: calc(33.333% - 20px); 
     background: #222;
     text-align: center;
     border-radius: 6px;
     padding: 50px 25px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; 
 }
-.services .serv-content .card:hover{
+
+/* Layout Teks */
+.services .card p {
+    text-align: center;
+    text-justify: inter-word;
+    margin-top: 10px;
+}
+
+/* Hover Effect */
+.services .serv-content .card:hover {
     background: crimson;
 }
-.services .serv-content .card .box{
+
+.services .serv-content .card .box {
     transition: all 0.3s ease;
 }
-.services .serv-content .card:hover .box{
+
+.services .serv-content .card:hover .box {
     transform: scale(1.05);
 }
-.services .serv-content .card i{
+
+/* Icon Styling */
+.services .serv-content .card i {
     font-size: 50px;
     color: crimson;
     transition: color 0.3s ease;
 }
-.services .serv-content .card:hover i{
+
+.services .serv-content .card:hover i {
     color: #fff;
 }
-.services .serv-content .card .text{
+
+/* Title Styling */
+.services .serv-content .card .text {
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
 
-/* skills section styling */
-
-.skills .title::after{
-    content: "what i know";
+/* Responsiveness to mobile */
+@media (max-width: 992px) {
+    .services .serv-content .card {
+        width: calc(50% - 20px); 
+    }
 }
+
+@media (max-width: 600px) {
+    .services .serv-content .card {
+        width: 100%; 
+    }
+}
+
+/* Styling for Education & Experience */
+.education-experience h3 {
+    margin-top: 20px;
+    color: crimson;
+    font-size: 20px;
+}
+
+.education-experience p {
+    font-size: 16px;
+    color: #070606;
+    line-height: 1.6;
+}
+
+.education-experience ul {
+    list-style: none;
+    padding: 0;
+}
+
+.education-experience li {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.education-experience ul p {
+    font-size: 14px;
+    color: #070606; 
+}
+
+.education-experience ul p strong {
+    font-weight: bold;
+    color: #070606 !important; 
+}
+
+
+/* skills section styling */
 .skills .skills-content .column{
     width: calc(50% - 30px);
 }
@@ -366,176 +443,312 @@ section .title::after{
     width: 90%;
 }
 .skills-content .right .css::before{
-    width: 60%;
-}
-.skills-content .right .js::before{
     width: 80%;
 }
+.skills-content .right .js::before{
+    width: 70%;
+}
 .skills-content .right .php::before{
-    width: 50%;
+    width: 70%;
 }
 .skills-content .right .mysql::before{
     width: 70%;
 }
 
-/* teams section styling */
-.teams .title::after{
-    content: "who with me";
-}
-.teams .carousel .card{
-    background: #222;
-    border-radius: 6px;
-    padding: 25px 35px;
+/* Styling Layout Project */
+.project {
+    padding: 50px 0;
     text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
 }
-.teams .carousel .card:hover{
-    background: crimson;
+
+/* Styling Swiper */
+.swiper {
+    display: flex;
+    justify-content: center; 
 }
-.teams .carousel .card .box{
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling Card */
+.card {
+    width: 80%; 
+    max-width: 800px; 
+    margin: auto; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    text-align: center; 
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 280px; 
+    object-fit: cover;
+}
+
+/* Title In The Box */
+.card h3 {
+    font-size: 26px; 
+    font-weight: bold;
+    color: crimson;
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Memusatkan Paragraf */
+.card p {
+    font-size: 18px; 
+    color: #444;
+    padding: 0 25px 25px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Styling Navigasi Swiper */
+.swiper-button-next, .swiper-button-prev {
+    color: crimson !important; /* Paksa warna dengan !important */
+}
+
+/* Pastikan Ikon Panah juga Berubah */
+.swiper-button-next::after, .swiper-button-prev::after {
+    color: crimson !important;
+    font-size: 24px; /* Pastikan ukurannya tetap sesuai */
+}
+
+/* Styling Bullet Pagination */
+.swiper-pagination-bullet {
+    background: crimson !important;
+    opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+    background: crimson !important;
+    opacity: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
+    }
+}
+
+/* --- Styling Section Contact --- */
+.contact {
+    padding: 80px 10%;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+/* --- Styling Container --- */
+.contact .contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* --- Styling Left (Info) --- */
+.contact .left {
+    flex: 1;
+    text-align: left;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.contact .left:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contact .left .text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.teams .carousel .card:hover .box{
-    transform: scale(1.05);
-}
-.teams .carousel .card .text{
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-.teams .carousel .card img{
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid crimson;
-    transition: all 0.3s ease;
-}
-.teams .carousel .card:hover img{
-    border-color: #fff;
-}
-.owl-dots{
-    text-align: center;
-    margin-top: 20px;
-}
-.owl-dot{
-    height: 13px;
-    width: 13px;
-    margin: 0 5px;
-    outline: none!important;
-    border-radius: 50%;
-    border: 2px solid crimson!important;
-    transition: all 0.3s ease;
-}
-.owl-dot.active{
-    width: 35px;
-    border-radius: 14px;
-}
-.owl-dot.active,
-.owl-dot:hover{
-    background: crimson!important;
+    padding-bottom: 10px;
 }
 
-/* contact section styling */
-.contact .title::after{
-    content: "get in touch";
+.contact .left .text::after {
+    content: "";
+    width: 120px;
+    height: 3px;
+    background: crimson;
+    margin-top: 5px;
 }
-.contact .contact-content .column{
-    width: calc(50% - 30px);
+
+.contact .left p {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
 }
-.contact .contact-content .text{
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
+
+/* --- Styling Icon dan Info --- */
+.contact .icons {
+    margin-top: 10px;
 }
-.contact .contact-content .left p{
-    text-align: justify;
-}
-.contact .contact-content .left .icons{
-    margin: 10px 0;
-}
-.contact .contact-content .row{
+
+.contact .icons .row {
     display: flex;
-    height: 65px;
     align-items: center;
+    background: #f8f8f8;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
 }
-.contact .contact-content .row .info{
-    margin-left: 30px;
+
+.contact .icons .row:hover {
+    background: crimson;
+    color: white;
+    transform: scale(1.05);
 }
-.contact .contact-content .row i{
-    font-size: 25px;
+
+.contact .icons .row i {
+    font-size: 20px;
     color: crimson;
+    width: 30px;
+    text-align: center;
+    transition: 0.3s;
 }
-.contact .contact-content .info .head{
-    font-weight: 500;
+
+.contact .icons .row:hover i {
+    color: white;
 }
-.contact .contact-content .info .sub-title{
-    color: #333;
+
+.contact .icons .row .info {
+    margin-left: 10px;
 }
-.contact .right form .fields{
+
+.contact .icons .row .head {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact .icons .row .sub-title {
+    font-size: 13px;
+    color: #666;
+}
+
+/* --- Styling right (Form) --- */
+.contact .right {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.contact .right:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contact .right .text {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
 }
-.contact .right form .field,
-.contact .right form .fields .field{
-    height: 45px;
+
+.contact .right .text::after {
+    content: "";
+    width: 120px;
+    height: 3px;
+    background: crimson;
+    margin-top: 5px;
+}
+
+/* --- Styling Form --- */
+.contact .right form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact .right form input,
+.contact .right form textarea {
     width: 100%;
-    margin-bottom: 15px;
-}
-.contact .right form .textarea{
-    height: 80px;
-    width: 100%;
-}
-.contact .right form .name{
-    margin-right: 10px;
-}
-.contact .right form .field input,
-.contact .right form .textarea textarea{
-    height: 100%;
-    width: 100%;
-    border: 1px solid lightgrey;
-    border-radius: 6px;
+    padding: 12px;
+    font-size: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     outline: none;
-    padding: 0 15px;
-    font-size: 17px;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
-.contact .right form .field input:focus,
-.contact .right form .textarea textarea:focus{
-    border-color: #b3b3b3;
+
+.contact .right form input:focus,
+.contact .right form textarea:focus {
+    border-color: crimson;
+    box-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
 }
-.contact .right form .textarea textarea{
-  padding-top: 10px;
-  resize: none;
+
+/* --- Styling button --- */
+.contact .right form .button-area {
+    text-align: center;
 }
-.contact .right form .button-area{
-  display: flex;
-  align-items: center;
+
+.contact .right form button {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-.right form .button-area button{
-  color: #fff;
-  display: block;
-  width: 160px!important;
-  height: 45px;
-  outline: none;
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  flex-wrap: nowrap;
-  background: crimson;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
+
+.contact .right form button:hover {
+    background: #b30000;
+    transform: scale(1.05);
 }
-.right form .button-area button:hover{
-  color: crimson;
-  background: none;
+
+/* --- Responsive HP --- */
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 5%;
+    }
+
+    .contact .contact-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact .left, .contact .right {
+        width: 100%;
+        padding: 20px;
+    }
 }
+
+
 /* footer section styling */
 footer{
     background: #111;
